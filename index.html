@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PIM - WooCommerce Integration</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header>
+            <h1>PIM Dashboard</h1>
+            <p>Product Information Management & WooCommerce Integration</p>
+        </header>
+
+        <div class="cards">
+            <div class="card">
+                <h3>Total Products</h3>
+                <h2 id="totalProducts">0</h2>
+            </div>
+
+            <div class="card">
+                <h3>Synced</h3>
+                <h2 id="syncedProducts">0</h2>
+            </div>
+
+            <div class="card">
+                <h3>Pending</h3>
+                <h2 id="pendingProducts">0</h2>
+            </div>
+        </div>
+
+        <section class="form-section">
+            <h2>Add Product</h2>
+
+            <div class="form-grid">
+
+                <input type="text" id="name" placeholder="Product Name">
+                <input type="text" id="sku" placeholder="SKU">
+                <input type="number" id="price" placeholder="Price">
+                <input type="text" id="category" placeholder="Category">
+                <input type="number" id="stock" placeholder="Stock">
+
+                <input type="text" id="brand" placeholder="Brand">
+                <input type="text" id="color" placeholder="Color">
+                <input type="text" id="attribute" placeholder="Attribute (e.g. Bluetooth)">
+
+            </div>
+
+            <button onclick="addProduct()">Add Product</button>
+        </section>
+<section class="form-section">
+    <h2>WooCommerce Integration</h2>
+
+    <div class="form-grid">
+        <input type="text" id="storeUrl"
+               placeholder="WooCommerce Store URL"
+               value="https://demo-store.com">
+
+        <input type="text" id="apiStatus"
+               value="Connected"
+               readonly>
+    </div>
+
+    <button onclick="checkConnection()">Check Connection</button>
+
+    <p id="connectionMessage" style="margin-top:15px;">
+        ✓ WooCommerce connection is ready
+    </p>
+</section>
+        <section class="products-section">
+
+            <div class="section-header">
+                <h2>Product Catalog</h2>
+                <button onclick="syncAll()">Sync All to WooCommerce</button>
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>SKU</th>
+                        <th>Price</th>
+                        <th>Stock</th>
+                        <th>Attributes</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+                <tbody id="productTable">
+                </tbody>
+
+            </table>
+
+        </section>
+
+        <div id="message"></div>
+
+    </div>
+
+    <script src="app.js"></script>
+<section class="form-section">
+    <h2>Synchronization Activity</h2>
+
+    <p>✓ Wireless Headphones (WH001) - Synced successfully</p>
+    <p>• Smart Watch (SW001) - Pending synchronization</p>
+    <p>• Bluetooth Speaker (BS001) - Pending synchronization</p>
+</section>
+
+</body>
+</html>
